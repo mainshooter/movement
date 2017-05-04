@@ -11,11 +11,11 @@ html, body {
 }
 .default {
   background-color: red;
-  width: 3em;
-  height: 3em;
+  width: 40px;
+  height: 40px;
 }
 .other {
   background-color: blue;
-  width: 5em;
-  height: 5em;
+  width: 100px;
+  height: 100px;
 }
