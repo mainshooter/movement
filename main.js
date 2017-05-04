@@ -1,6 +1,10 @@
 document.getElementById("fullPage").addEventListener("mousemove", mouseMove);
 document.getElementById("circle").addEventListener("dblclick", circleStyleChange);
+// Computer events
 
+document.getElementById("fullPage").addEventListener("touchmove", mouseMove);
+document.getElementById("circle").addEventListener("touchend", circleStyleChange);
+// Touch events
 
 var circle = document.getElementById('circle');
 var circleWith = 20;
