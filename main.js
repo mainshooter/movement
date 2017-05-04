@@ -8,13 +8,12 @@ var circleWith = 20;
 
 function mouseMove(event) {
   // Moves the mouse
-  console.log("RUN");
   circle.style.top = (event.pageY - circleWith) + "px";
   circle.style.left = (event.pageX - circleWith) + "px";
 }
 var timesClicked = 0;
 // When timesclicked by circle change
-function circleStyleChange(event) {
+function circleStyleChange() {
   // This function changes the circle style when there is 2 times clickked
   if (timesClicked === 0) {
     // Change style to other style
