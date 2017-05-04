@@ -1,0 +1,21 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100em;
+}
+.default {
+  background-color: red;
+  width: 3em;
+  height: 3em;
+}
+.other {
+  background-color: blue;
+  width: 5em;
+  height: 5em;
+}
