@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     height: 100%;
     cursor: move;
+    background-color: #ecf0f1;
 }
 
 #circle {
@@ -11,12 +12,12 @@ html, body {
   border-radius: 50%;
 }
 .default {
-  background-color: red;
+  background-color: #e74c3c;
   width: 40px;
   height: 40px;
 }
 .other {
-  background-color: blue;
+  background-color: #3498db;
   width: 100px;
   height: 100px;
 }
