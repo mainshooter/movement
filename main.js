@@ -1,8 +1,8 @@
-document.getElementById("fullPage").addEventListener("mousemove", mouseMove);
+document.addEventListener("mousemove", mouseMove);
 document.getElementById("circle").addEventListener("dblclick", circleStyleChange);
 // Computer events
 
-document.getElementById("fullPage").addEventListener("touchmove", mouseMove);
+document.addEventListener("touchmove", mouseMove);
 document.getElementById("circle").addEventListener("touchend", circleStyleChange);
 // Touch events
 
