@@ -14,45 +14,26 @@ var movementArrayX = [''];
 var movementArrayY = [''];
 
 function storeMovement(event) {
-  // Moves the mouse
-  // circle.style.top = (event.pageY - circleWith) + "px";
-  // circle.style.left = (event.pageX - circleWith) + "px";
+  // Stores the movement of the mouse in a array
   movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
   movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
 }
 var movement;
 function startRepeat() {
+  // Start to replicate the movement
   movement = setInterval(move, 1);
 }
 function move() {
-  console.log("START!");
   if (movementArrayY.length == 0) {
-    console.log("STOP");
+    // If there is nothing left in the array
     clearInterval(movement);
   }
   else {
+    // Moves the circle
     circle.style.top = (movementArrayY[0]) + "px";
     circle.style.left = (movementArrayX[0]) + "px";
 
     movementArrayX.shift();
     movementArrayY.shift();
-  }
-}
-var timesClicked = 0;
-// When timesclicked by circle change
-function circleStyleChange() {
-  // This function changes the circle style when there is 2 times clickked
-  if (timesClicked === 0) {
-    // Change style to other style
-    circleWith = 50;
-    circle.className = "other";
-    timesClicked++;
-
-  }
-  else if (timesClicked === 1) {
-    // Change style to default
-    circleWith = 20;
-    circle.className = "default";
-    timesClicked = 0;
   }
 }
