@@ -1,3 +1,4 @@
+var circleWith = 20;
 var moveInter;
 (function() {
   app = {
@@ -23,8 +24,10 @@ var movementArrayY = [''];
   store = {
     movement: function(event) {
       // This function stores the movement of a array
-      movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
-      movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
+      position.x[position.x.length + 1] = event.pageX - circleWith;
+      position.y[position.y.length + 1] = event.pageY - circleWith;
+      // movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
+      // movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
     }
   }
 })();
@@ -33,17 +36,17 @@ var movementArrayY = [''];
   circle = {
       move: function() {
         console.log("Move");
-        if (movementArrayX.length == 0) {
+        if (position.x == 0) {
           // If there is nothing left in the array
           app.endMovement();
         }
         else {
           // Moves the circle
-          circle.positionTop(movementArrayY[0]);
-          circle.positionLeft(movementArrayX[0]);
+          circle.positionTop(position.y[0]);
+          circle.positionLeft(position.x[0]);
 
-          movementArrayX.shift();
-          movementArrayY.shift();
+          position.x.shift();
+          position.y.shift();
         }
       },
       positionTop: function(position) {
