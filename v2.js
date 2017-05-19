@@ -1,39 +1,57 @@
-document.addEventListener("mousemove", storeMovement);
-document.addEventListener("click", startRepeat);
-// Computer events
-
-document.addEventListener("touchmove", storeMovement);
-document.addEventListener("touchend", startRepeat);
-// Touch events
-
-var circle = document.getElementById('circle');
-var circleWith = 20;
-// To set the mouse the center of the circle
-
+var moveInter;
+(function() {
+  app = {
+    startMovement: function() {
+      moveInter = setInterval(circle.move, 10);
+    },
+    endMovement: function() {
+      clearInterval(moveInter);
+    },
+    listeners: function() {
+      document.addEventListener("mousemove", store.movement);
+      document.addEventListener("click", app.startMovement);
+    }
+  }
+})();
+var position = {
+  x: [],
+  y: []
+}
 var movementArrayX = [''];
 var movementArrayY = [''];
-
-function storeMovement(event) {
-  // Stores the movement of the mouse in a array
-  movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
-  movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
-}
-var movement;
-function startRepeat() {
-  // Start to replicate the movement
-  movement = setInterval(move, 1);
-}
-function move() {
-  if (movementArrayY.length == 0) {
-    // If there is nothing left in the array
-    clearInterval(movement);
+(function() {
+  store = {
+    movement: function(event) {
+      // This function stores the movement of a array
+      movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
+      movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
+    }
   }
-  else {
-    // Moves the circle
-    circle.style.top = (movementArrayY[0]) + "px";
-    circle.style.left = (movementArrayX[0]) + "px";
+})();
 
-    movementArrayX.shift();
-    movementArrayY.shift();
+(function() {
+  circle = {
+      move: function() {
+        console.log("Move");
+        if (movementArrayX.length == 0) {
+          // If there is nothing left in the array
+          app.endMovement();
+        }
+        else {
+          // Moves the circle
+          circle.positionTop(movementArrayY[0]);
+          circle.positionLeft(movementArrayX[0]);
+
+          movementArrayX.shift();
+          movementArrayY.shift();
+        }
+      },
+      positionTop: function(position) {
+        document.getElementById('circle').style.top = position + "px";
+      },
+      positionLeft: function(position) {
+        document.getElementById('circle').style.left = position + "px";
+      }
   }
-}
+}());
+app.listeners();
