@@ -1,6 +1,7 @@
 var circleWith = 20;
 var moveInter;
 var mouseStatus = 0;
+var color = 'black';
 
 (function() {
   app = {
@@ -12,8 +13,22 @@ var mouseStatus = 0;
       document.addEventListener("mousemove", app.drawing);
       document.addEventListener("mousedown", app.changeMouseStatus);
       document.addEventListener("mouseup", app.changeMouseStatus);
+
+      var colorSelect = document.getElementsByClassName('colorSelect');
+      for (var i = 0; i < colorSelect.length; i++) {
+        colorSelect[i].addEventListener("click", function(){ app.changeColor(this.innerHTML) });
+      }
+
+    },
+    changeColor: function(colorChoise) {
+      color = colorChoise;
     },
 
+    /**
+     * Sets the mouse status
+     * If it is 0 you can't draw
+     * If it is 1 you can
+     */
     changeMouseStatus: function() {
       if (mouseStatus === 0) {
         mouseStatus = 1;
@@ -28,13 +43,13 @@ var mouseStatus = 0;
      * @param  {[object]} event [The event from the event handler]
      */
     drawing: function(event) {
-      console.log(event);
+
       var div = document.createElement("div");
       div.style.padding = '1em';
       div.style.position = "absolute";
       div.style.top = event.pageY + "px";
       div.style.left = event.pageX + "px";
-      div.style.backgroundColor = 'black';
+      div.style.backgroundColor = color;
 
       if (mouseStatus === 1) {
         app.place(div);
