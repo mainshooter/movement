@@ -50,7 +50,7 @@ var color = 'black';
       div.style.top = event.pageY + "px";
       div.style.left = event.pageX + "px";
       div.style.backgroundColor = color;
-      div.style.zIndex = 1;
+      div.style.zIndex = -1;
 
       if (mouseStatus === 1) {
         app.place(div);

@@ -2,7 +2,8 @@ html, body {
     margin: 0;
     height: 100%;
     cursor: move;
-    background-color: #ecf0f1;
+    /*background-color: #ecf0f1;*/
+    /*z-index: -2;*/
 }
 
 #circle {
@@ -20,4 +21,7 @@ html, body {
   background-color: #3498db;
   width: 100px;
   height: 100px;
+}
+button {
+  z-index: 4343;
 }
