@@ -1,5 +1,6 @@
 var circleWith = 20;
 var moveInter;
+var mouseStatus = 0;
 
 (function() {
   app = {
@@ -9,6 +10,17 @@ var moveInter;
      */
     listeners: function() {
       document.addEventListener("mousemove", app.drawing);
+      document.addEventListener("mousedown", app.changeMouseStatus);
+      document.addEventListener("mouseup", app.changeMouseStatus);
+    },
+
+    changeMouseStatus: function() {
+      if (mouseStatus === 0) {
+        mouseStatus = 1;
+      }
+      else if (mouseStatus === 1) {
+        mouseStatus = 0;
+      }
     },
 
     /**
@@ -23,7 +35,8 @@ var moveInter;
       div.style.top = event.pageY + "px";
       div.style.left = event.pageX + "px";
       div.style.backgroundColor = 'black';
-      document.body.onmousedown = function() {
+
+      if (mouseStatus === 1) {
         app.place(div);
       }
     },
