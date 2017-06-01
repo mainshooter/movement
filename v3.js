@@ -16,7 +16,7 @@ var color = 'black';
 
       var colorSelect = document.getElementsByClassName('colorSelect');
       for (var i = 0; i < colorSelect.length; i++) {
-        colorSelect[i].addEventListener("click", function(){ app.changeColor(this.innerHTML) });
+        colorSelect[i].addEventListener("click", function(){ app.changeColor(this.value) });
       }
 
     },
@@ -50,6 +50,7 @@ var color = 'black';
       div.style.top = event.pageY + "px";
       div.style.left = event.pageX + "px";
       div.style.backgroundColor = color;
+      div.style.zIndex = 1;
 
       if (mouseStatus === 1) {
         app.place(div);
