@@ -26,8 +26,6 @@ var movementArrayY = [''];
       // This function stores the movement of a array
       position.x[position.x.length + 1] = event.pageX - circleWith;
       position.y[position.y.length + 1] = event.pageY - circleWith;
-      // movementArrayX[movementArrayX.length + 1] = event.pageX - circleWith;
-      // movementArrayY[movementArrayY.length + 1] = event.pageY - circleWith;
     }
   }
 })();
